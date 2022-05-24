@@ -44,24 +44,17 @@ int main() {
             generate(d.begin(), d.end(), [&] { return rd(); });
 
             for (auto [off, sz] : seq_size) {
-                cout << off << " : " << off + sz-1 << endl;
                 string dd(d.cbegin() + off, d.cbegin() + off + sz);
                 buf.push_substring(move(dd), off, off + sz == offset);
             }
 
             auto result = read(buf);
             if (buf.stream_out().bytes_written() != offset) {  // read bytes
-                cout << buf.stream_out().bytes_written() << " "<< offset << " " << buf.unassembled_bytes() <<endl;
                 throw runtime_error("test 2 - number of RX bytes is incorrect");
             }
             if (!equal(result.cbegin(), result.cend(), d.cbegin())) {
-                cout << buf.stream_out().bytes_written() << " "<< offset << " " << buf.unassembled_bytes() <<endl;
                 throw runtime_error("test 2 - content of RX bytes is incorrect");
             }
-
-            cout << "-------------------------" << endl;
-            cout << "-------------------------" << endl;
-            cout << "-------------------------" << endl;
         }
     } catch (const exception &e) {
         cerr << "Exception: " << e.what() << endl;
