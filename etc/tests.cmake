@@ -63,7 +63,6 @@ add_test(NAME t_loopback             COMMAND fsm_loopback)
 add_test(NAME t_loopback_win         COMMAND fsm_loopback_win)
 add_test(NAME t_reorder              COMMAND fsm_reorder)
 
-add_test(NAME t_address_dt           COMMAND address_dt)
 add_test(NAME t_parser_dt            COMMAND parser_dt)
 add_test(NAME t_socket_dt            COMMAND socket_dt)
 
