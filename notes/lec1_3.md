@@ -1,4 +1,4 @@
-# lectures from 1 to 3
+# lectures notes from 1 to 3
 
 ## Networked Applications
 
