@@ -1,5 +1,5 @@
 #include "stream_reassembler.hh"
-
+#include <iostream>
 
 // Dummy implementation of a stream reassembler.
 
