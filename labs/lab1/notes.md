@@ -19,6 +19,6 @@ basically, i choose `set` to be the inner container of my data structure which a
 
 after deciding which data structure will be used, all i need to do is exhausting all possible situations and debug with the test cases.
 
-![result](result.png)
+![result](../Assets/lab1/result.png)
 
 notice that all test cases is passed within half seconds except the one using the internet. you may find it helpful to run the test cases multiple times since in some test cases random data generation is applied, which means you may accidently pass sometimes even there are some small bugs in your implementaion.
