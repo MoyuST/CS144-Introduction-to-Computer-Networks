@@ -30,6 +30,10 @@ class ByteStream {
       }
 
       size_t write(const std::string &data){
+        if(data.size()==0){
+          return 0;
+        }
+        
         size_t written_char_num = std::min(capacity_-cur_len_, data.size());
 
         if(end_+written_char_num>=capacity_+1){
@@ -53,6 +57,10 @@ class ByteStream {
       }
 
       std::string peek_output(const size_t len) const {
+        if(buffer_empty()){
+          return "";
+        }
+
         size_t rt_len = std::min(cur_len_, len);
 
         if(start_+rt_len>=capacity_+1){
@@ -68,6 +76,10 @@ class ByteStream {
       }
 
       size_t pop_output(const size_t len){
+        if(buffer_empty()){
+          return 0;
+        }
+
         size_t pop_char_num = std::min(cur_len_, len);
 
         if(start_+pop_char_num>=capacity_+1){

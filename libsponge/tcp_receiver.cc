@@ -30,8 +30,6 @@ void TCPReceiver::segment_received(const TCPSegment &seg) {
         );    
     }
 
-    cout << "data: (" << seg.payload().copy() << ") " << _syn << " " << _fin << " " << (seg.header().syn ? 0 : absolute_idx-1) << endl;
-
     _reassembler.push_substring(
         seg.payload().copy(), 
         seg.header().syn ? 0 : absolute_idx-1,
@@ -52,12 +50,5 @@ optional<WrappingInt32> TCPReceiver::ackno() const {
 }
 
 size_t TCPReceiver::window_size() const { 
-    // auto rt = ackno();
-    // if(rt==nullopt){
-    //     return _capacity;
-    // }
-
-    // return (rt.value().raw_value()+static_cast<uint32_t>(_capacity))%TWOTO32;
-
     return _capacity-stream_out().buffer_size();
 }
