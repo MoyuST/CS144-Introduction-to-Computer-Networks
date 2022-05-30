@@ -142,7 +142,7 @@ void TCPSender::tick(const size_t ms_since_last_tick) {
     if(_inside_timer._running){
         if(_inside_timer._accumulate_ms+ms_since_last_tick>=_inside_timer._RTO){
             _segments_out.push(_unack_segmetns.begin()->second);
-            _inside_timer._accumulate_ms = _inside_timer._accumulate_ms+ms_since_last_tick-_inside_timer._RTO;
+            _inside_timer._accumulate_ms = 0;
             if(_receiver_window!=0){
                 _inside_timer._RTO *= 2;
             }

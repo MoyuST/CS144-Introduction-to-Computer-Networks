@@ -1,4 +1,4 @@
-#include "socket.hh"
+#include "tcp_sponge_socket.hh"
 #include "util.hh"
 
 #include <cstdlib>
@@ -12,7 +12,7 @@ void get_URL(const string &host, const string &path) {
     // You will need to connect to the "http" service on
     // the computer whose name is in the "host" string,
     // then request the URL path given in the "path" string.
-    TCPSocket client;
+    CS144TCPSocket client;
     client.connect(Address(host, "http"));
     string request = "GET "+path+" HTTP/1.1\r\nHost: " + host + "\r\nConnection: close\r\n\r\n";
     client.write(request);
@@ -24,6 +24,8 @@ void get_URL(const string &host, const string &path) {
         auto recvd = client.read();
         cout << recvd;
     }
+
+    client.wait_until_closed();
 
     // cerr << "Function called: get_URL(" << host << ", " << path << ").\n";
     // cerr << "Warning: get_URL() has not been implemented yet.\n";

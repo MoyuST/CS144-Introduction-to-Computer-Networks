@@ -29,6 +29,10 @@ class ByteStream {
         container_.resize(n+1);
       }
 
+      size_t avail_len() const {
+        return capacity_ - cur_len_;
+      }
+
       size_t write(const std::string &data){
         if(data.size()==0){
           return 0;
@@ -186,6 +190,14 @@ class ByteStream {
     //! Total number of bytes popped
     size_t bytes_read() const;
     //!@}
+
+    void set_error(bool error){
+      _error = error;
+    }
+
+    size_t avail_len() const {
+      return container_.avail_len();
+    }
 };
 
 #endif  // SPONGE_LIBSPONGE_BYTE_STREAM_HH

@@ -5,6 +5,7 @@
 #include "tcp_receiver.hh"
 #include "tcp_sender.hh"
 #include "tcp_state.hh"
+#include <iostream>
 
 //! \brief A complete endpoint of a TCP connection
 class TCPConnection {
@@ -20,8 +21,16 @@ class TCPConnection {
     //! for 10 * _cfg.rt_timeout milliseconds after both streams have ended,
     //! in case the remote TCPConnection doesn't know we've received its whole stream?
     bool _linger_after_streams_finish{true};
+    bool _linger_after_streams_finish_start{false}, _linger_after_streams_finish_finish{false};
+    size_t _linger_after_streams_finish_timer{0};
+    bool _rst_received{false}, _rst_sent{false};
+    bool _active{false};
+    size_t _time_since_last_segment_received{0};
+
+    void retrieve_seg_from_sender();
 
   public:
+    size_t ticked_time();
     //! \name "Input" interface for the writer
     //!@{
 
@@ -81,7 +90,7 @@ class TCPConnection {
     //!@}
 
     //! Construct a new connection from a configuration
-    explicit TCPConnection(const TCPConfig &cfg) : _cfg{cfg} {}
+    explicit TCPConnection(const TCPConfig &cfg) : _cfg{cfg}, _active{true} { }
 
     //! \name construction and destruction
     //! moving is allowed; copying is disallowed; default construction not possible

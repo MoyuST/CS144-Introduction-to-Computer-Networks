@@ -20,21 +20,26 @@ StreamReassembler::StreamReassembler(const size_t capacity) :
 void StreamReassembler::push_substring(const string &data, const size_t index, const bool eof) {
     size_t end_val = index+data.size()-1;
 
-    if(eof == true){
-        max_boundary_ = end_val+1;
-        if(cur_start_ == max_boundary_){
-            _output.end_input();
-        }
-    }
-
     if(index+data.size()>=1 && end_val<cur_start_){
-        return;
+        if(eof && end_val+1==cur_start_){
+            
+        }
+        else{
+            return;
+        }
     }
 
     string new_data_str = data;
 
     if(index+data.size()>=1 && end_val>=cur_max_boundary_){
         new_data_str = data.substr(0, cur_max_boundary_-index);
+    }
+
+    if(eof == true){
+        max_boundary_ = end_val+1;
+        if(cur_start_ == max_boundary_){
+            _output.end_input();
+        }
     }
 
     end_val = index+new_data_str.size()-1;

@@ -1,6 +1,5 @@
 #include "byte_stream.hh"
-
-// Dummy implementation of a flow-controlled in-memory byte stream.
+#include <iostream>
 
 // For Lab 0, please replace with a real implementation that passes the
 // automated checks run by `make check_lab0`.
