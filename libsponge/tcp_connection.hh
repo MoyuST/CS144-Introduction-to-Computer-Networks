@@ -5,6 +5,7 @@
 #include "tcp_receiver.hh"
 #include "tcp_sender.hh"
 #include "tcp_state.hh"
+
 #include <iostream>
 
 //! \brief A complete endpoint of a TCP connection
@@ -90,7 +91,7 @@ class TCPConnection {
     //!@}
 
     //! Construct a new connection from a configuration
-    explicit TCPConnection(const TCPConfig &cfg) : _cfg{cfg}, _active{true} { }
+    explicit TCPConnection(const TCPConfig &cfg) : _cfg{cfg}, _active{true} {}
 
     //! \name construction and destruction
     //! moving is allowed; copying is disallowed; default construction not possible
