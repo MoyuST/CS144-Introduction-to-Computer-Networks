@@ -14,7 +14,7 @@ void program_body() {
     sockets.reserve(66000);
     peers.reserve(66000);
 
-    for (uint16_t lower_port = 1024; lower_port <= 64000; lower_port += 2) {
+    for (uint16_t lower_port = 1024; lower_port <= 4096; lower_port += 2) {
         sockets.emplace_back();
         sockets.emplace_back();
         peers.emplace_back();
