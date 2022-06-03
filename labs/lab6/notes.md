@@ -1,6 +1,5 @@
 # notes about lab6
 
-
 the task for this lab is quite easy, which is to implement two simple functions of router. but before that, we need a data structure to hold the information of each rule in routing table. to make easy, i directly wrap all the stuffs of one rule (route_prefix, route_length, next_hop, interface_num) into a struct and store them inside a vector.
 
 - add_route
@@ -22,12 +21,12 @@ the task for this lab is quite easy, which is to implement two simple functions 
 
 with all help above, this task could be finished easily.
 
-![result check_lab6](make_checklab6_result.png)
+![result check_lab6](../Assets/lab6/make_checklab6_result.png)
 
 due to some special reasons, the network traffic between my computer and the one involved in webget test is quite slow. so i increase the statndard of time out a little.
-![result make check](make_check_result.png)
+![result make check](../Assets/lab6/make_check_result.png)
 
 and for the webget, it takes around 25s and for t_address is 5s. if deduct them from all test cases, the running time for each test would be around 0.3s which is acceptable.
 
-![result consuming time because of internet traffic](test31.png)
-![result consuming time because of internet traffic](test53.png)
+![result consuming time because of internet traffic](../Assets/lab6/test31.png)
+![result consuming time because of internet traffic](../Assets/lab6/test53.png)

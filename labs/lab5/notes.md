@@ -14,8 +14,8 @@ with above three data structures, all necessary data could be stored to finish t
 
 ---
 
-![make check_lab5 result](make_check5_result.png)
+![make check_lab5 result](../Assets/lab5/make_check5_result.png)
 
 ---
 
-![make check result](make_check_result.png)
+![make check result](../Assets/lab5/make_check_result.png)
