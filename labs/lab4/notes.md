@@ -26,3 +26,9 @@ if you coded followed the instruction and webget will work without a problem.
 
 ![webget modification](../Assets/lab4/webget.png)
 ![webget result](../Assets/lab4/webget_result.png)
+
+---
+
+the benchmark result statisfied the requirements
+
+![benchmark](../Assets/lab4/benchmark.png)
